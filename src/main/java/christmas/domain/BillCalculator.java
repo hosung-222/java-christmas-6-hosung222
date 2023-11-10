@@ -7,9 +7,11 @@ import christmas.utill.DateValidator;
 
 public class BillCalculator {
     private final TotalEvent totalEvent;
+    private final Order order;
 
-    public BillCalculator(TotalEvent totalEvent, DateValidator dateValidator) {
+    public BillCalculator(TotalEvent totalEvent, Order order) {
         this.totalEvent = totalEvent;
+        this.order = order;
     }
 
     public void calculateTotalAmount(){
@@ -24,6 +26,7 @@ public class BillCalculator {
     public void calculateWeekEvent(int date){
         if (DateValidator.isWeekday(date)){
             WeekdayEvent weekdayEvent = new WeekdayEvent();
+            weekdayEvent.getWeekdayDiscount(totalEvent, order);
 
         } else if (DateValidator.isWeekend(date)) {
             WeekendEvent weekendEvent = new WeekendEvent();

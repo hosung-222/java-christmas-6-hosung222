@@ -3,7 +3,7 @@ package christmas.domain.Events;
 import christmas.domain.TotalEvent;
 
 public class DdayEvent {
-    private static final String PRESENT_EVENT_TITLE = "크리스마스 디데이 할인";
+    private static final String EVENT_TITLE = "크리스마스 디데이 할인";
     private static final int EVENT_START_DAY = 1;
     private static final int EVENT_END_DAY = 25;
     private static final int DISCOUNT_START_POINT = 1000;
@@ -21,7 +21,7 @@ public class DdayEvent {
         if(validateDate(date)){
             int dDayDiscountAmount = getDiscountAmount(date);
             // <혜택 내역> 업데이트 "크리스마스 디데이 할인" : discountAmount
-            totalEvent.updateBenefitHistory(PRESENT_EVENT_TITLE, dDayDiscountAmount);
+            totalEvent.updateBenefitHistory(EVENT_TITLE, dDayDiscountAmount);
         }
     }
 

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PresentEvent {
-    private static final String PRESENT_EVENT_TITLE = "증정 이벤트";
+    private static final String EVENT_TITLE = "증정 이벤트";
     private static final int MINIMUM_AMOUNT_FOR_PRESENT = 120000;
     private static final int CHAMPAGNE_PRESENT_PRICE = 25000;
     private static final String CHAMPAGNE_PRESENT_NAME ="샴페인";
@@ -26,7 +26,7 @@ public class PresentEvent {
             //<증정 메뉴> return "샴페인" : 1
             presentEventResult.put(CHAMPAGNE_PRESENT_NAME, present.get(CHAMPAGNE_PRESENT_NAME));
             // <혜택 내역> 업데이트 "증정 이벤트" : 25000
-            totalEvent.updateBenefitHistory(PRESENT_EVENT_TITLE, CHAMPAGNE_PRESENT_PRICE);
+            totalEvent.updateBenefitHistory(EVENT_TITLE, CHAMPAGNE_PRESENT_PRICE);
         }
         return presentEventResult;
     }
