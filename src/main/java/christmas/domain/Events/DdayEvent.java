@@ -20,6 +20,7 @@ public class DdayEvent {
     public void getDdayDiscount(int date , TotalEvent totalEvent){
         if(validateDate(date)){
             int dDayDiscountAmount = getDiscountAmount(date);
+            // <혜택 내역> 업데이트 "크리스마스 디데이 할인" : discountAmount
             totalEvent.updateBenefitHistory(PRESENT_EVENT_TITLE, dDayDiscountAmount);
         }
     }
