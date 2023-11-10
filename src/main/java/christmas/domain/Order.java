@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
+    private static final String CATEGORY_MAIN = "메인";
+    private static final String CATEGORY_DESERT = "디저트";
     private MenuBoard menuBoard;
     private Map<Menu, Integer> orderedItems;
 
@@ -26,7 +28,19 @@ public class Order {
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if(menu.getCategory().equals("디저트")){
+            if(menu.getCategory().equals(CATEGORY_DESERT)){
+                desertCount += quantity;
+            }
+        }
+        return desertCount;
+    }
+
+    public int getMainCount(){
+        int desertCount = 0;
+        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
+            Menu menu = entry.getKey();
+            int quantity = entry.getValue();
+            if(menu.getCategory().equals(CATEGORY_MAIN)){
                 desertCount += quantity;
             }
         }
@@ -42,5 +56,6 @@ public class Order {
         }
         return totalPrice;
     }
+
 
 }

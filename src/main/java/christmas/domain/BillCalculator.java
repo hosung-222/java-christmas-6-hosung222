@@ -30,6 +30,7 @@ public class BillCalculator {
 
         } else if (DateValidator.isWeekend(date)) {
             WeekendEvent weekendEvent = new WeekendEvent();
+            weekendEvent.getWeekendDiscount(totalEvent, order);
         }
     }
 }
