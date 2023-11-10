@@ -1,5 +1,6 @@
-package christmas.domain;
+package christmas.domain.Events;
 
+import christmas.domain.TotalEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,10 @@ public class PresentEvent {
     public Map<String, Integer> getPresentEvent(int totalAmount, TotalEvent totalEvent){
         Map<String, Integer> presentEventResult = new HashMap<>();
         if (isPresentEventApplicable(totalAmount)){
+            //<증정 메뉴> return "샴페인" : 1
             presentEventResult.put(CHAMPAGNE_PRESENT_NAME, present.get(CHAMPAGNE_PRESENT_NAME));
+            // <혜택 내역> 업데이트 "증정 이벤트" : 25000
+            totalEvent.updateBenefitHistory(PRESENT_EVENT_TITLE, CHAMPAGNE_PRESENT_PRICE);
         }
         return presentEventResult;
     }
