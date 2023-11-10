@@ -21,6 +21,18 @@ public class Order {
         return orderedItems;
     }
 
+    public int getDesertCount(){
+        int desertCount = 0;
+        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
+            Menu menu = entry.getKey();
+            int quantity = entry.getValue();
+            if(menu.getCategory().equals("디저트")){
+                desertCount += quantity;
+            }
+        }
+        return desertCount;
+    }
+
     public int getTotalPrice() {
         int totalPrice = 0;
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
