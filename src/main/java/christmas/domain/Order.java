@@ -36,15 +36,15 @@ public class Order {
     }
 
     public int getMainCount(){
-        int desertCount = 0;
+        int mainCount = 0;
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
             if(menu.getCategory().equals(CATEGORY_MAIN)){
-                desertCount += quantity;
+                mainCount += quantity;
             }
         }
-        return desertCount;
+        return mainCount;
     }
 
     public int getTotalPrice() {

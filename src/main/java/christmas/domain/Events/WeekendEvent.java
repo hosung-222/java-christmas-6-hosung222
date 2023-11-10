@@ -11,7 +11,7 @@ public class WeekendEvent {
         totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
     }
 
-    private int calculateDiscount(Order order) {
+    public int calculateDiscount(Order order) {
         return DISCOUNT_DEFAULT *order.getMainCount();
     }
 }
