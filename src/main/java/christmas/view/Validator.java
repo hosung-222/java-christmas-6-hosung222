@@ -35,5 +35,10 @@ public class Validator {
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
+    public static void validateQuantity(int quantity) {
+        if (quantity < 1) {
+            throw new IllegalArgumentException(MENU_ERROR);
+        }
+    }
 
 }
