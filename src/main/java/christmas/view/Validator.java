@@ -28,5 +28,12 @@ public class Validator {
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
+    public static int changeQuantityToInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(MENU_ERROR);
+        }
+    }
 
 }
