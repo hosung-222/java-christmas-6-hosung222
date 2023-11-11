@@ -10,7 +10,7 @@ public class PresentEvent {
     private static final int CHAMPAGNE_PRESENT_PRICE = 25000;
     private static final String CHAMPAGNE_PRESENT_NAME ="샴페인";
     private static final int CHAMPAGNE_PRESENT_AMOUNT = 1;
-    private final Map<String, Integer> present = new HashMap<>();
+    private final Map<String, Integer> present = new HashMap<>();   // Map < 증정 선물 이름 : 수량 >
 
     public PresentEvent(){
         present.put(CHAMPAGNE_PRESENT_NAME, CHAMPAGNE_PRESENT_AMOUNT);
