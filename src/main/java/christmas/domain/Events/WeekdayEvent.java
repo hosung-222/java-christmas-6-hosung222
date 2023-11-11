@@ -9,11 +9,11 @@ public class WeekdayEvent {
     private static final String EVENT_TITLE = "평일 할인";
     private static final int DISCOUNT_DEFAULT = 2023;
 
-    public int calculateDiscount(Order order){
+    public int calculateDiscount(Order order) {
         return DISCOUNT_DEFAULT * order.getDesertCount();
     }
 
-    public void getWeekdayDiscount(TotalEvent totalEvent, Order order){
+    public void getWeekdayDiscount(TotalEvent totalEvent, Order order) {
 
         totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
     }

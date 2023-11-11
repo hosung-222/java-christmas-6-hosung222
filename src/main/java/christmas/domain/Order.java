@@ -23,24 +23,24 @@ public class Order {
         return orderedItems;
     }
 
-    public int getDesertCount(){
+    public int getDesertCount() {
         int desertCount = 0;
-        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
+        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if(menu.getCategory().equals(CATEGORY_DESERT)){
+            if (menu.getCategory().equals(CATEGORY_DESERT)) {
                 desertCount += quantity;
             }
         }
         return desertCount;
     }
 
-    public int getMainCount(){
+    public int getMainCount() {
         int mainCount = 0;
-        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()){
+        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if(menu.getCategory().equals(CATEGORY_MAIN)){
+            if (menu.getCategory().equals(CATEGORY_MAIN)) {
                 mainCount += quantity;
             }
         }

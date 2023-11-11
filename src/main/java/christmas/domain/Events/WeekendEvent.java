@@ -12,6 +12,6 @@ public class WeekendEvent {
     }
 
     public int calculateDiscount(Order order) {
-        return DISCOUNT_DEFAULT *order.getMainCount();
+        return DISCOUNT_DEFAULT * order.getMainCount();
     }
 }

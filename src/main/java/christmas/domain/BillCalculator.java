@@ -16,23 +16,24 @@ public class BillCalculator {
         this.order = order;
     }
 
-    public void calculateTotalAmount(){
+    public void calculateTotalAmount() {
         order.getTotalPrice();
     }
-    public void calculateAllEvent(int date){
+
+    public void calculateAllEvent(int date) {
         DdayEvent ddayEvent = new DdayEvent();
         ddayEvent.getDdayDiscount(date, totalEvent);
         calculateWeekEvent(date);
 
         StarEvent starEvent = new StarEvent();
-        starEvent.getStarDiscount(date,totalEvent);
+        starEvent.getStarDiscount(date, totalEvent);
 
         PresentEvent presentEvent = new PresentEvent();
         presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
     }
 
-    public void calculateWeekEvent(int date){
-        if (DateValidator.isWeekday(date)){
+    public void calculateWeekEvent(int date) {
+        if (DateValidator.isWeekday(date)) {
             WeekdayEvent weekdayEvent = new WeekdayEvent();
             weekdayEvent.getWeekdayDiscount(totalEvent, order);
 
