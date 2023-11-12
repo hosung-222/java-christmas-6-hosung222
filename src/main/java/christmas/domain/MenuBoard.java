@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import static christmas.enums.Menus.*;
 import static christmas.utill.Constants.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,21 +14,21 @@ public class MenuBoard {
     }
 
     private void initializeMenu() {
-        addMenu(new Menu("양송이수프", 6000, CATEGORY_APPETIZER));
-        addMenu(new Menu("타파스", 5500, CATEGORY_APPETIZER));
-        addMenu(new Menu("시저샐러드", 8000, CATEGORY_APPETIZER));
+        addMenu(new Menu(YANG_SONG_SOUP));
+        addMenu(new Menu(TAPAS));
+        addMenu(new Menu(CAESAR_SALAD));
 
-        addMenu(new Menu("티본스테이크", 55000, CATEGORY_MAIN));
-        addMenu(new Menu("바비큐립", 54000, CATEGORY_MAIN));
-        addMenu(new Menu("해산물파스타", 35000, CATEGORY_MAIN));
-        addMenu(new Menu("크리스마스파스타", 25000, CATEGORY_MAIN));
+        addMenu(new Menu(T_BONE_STEAK));
+        addMenu(new Menu(BBQ_RIBS));
+        addMenu(new Menu(SEAFOOD_PASTA));
+        addMenu(new Menu(CHRISTMAS_PASTA));
 
-        addMenu(new Menu("초코케이크", 15000, CATEGORY_DESERT));
-        addMenu(new Menu("아이스크림", 5000, CATEGORY_DESERT));
+        addMenu(new Menu(CHOCO_CAKE));
+        addMenu(new Menu(ICE_CREAM));
 
-        addMenu(new Menu("제로콜라", 3000, CATEGORY_DRINK));
-        addMenu(new Menu("레드와인", 60000, CATEGORY_DRINK));
-        addMenu(new Menu("샴페인", 25000, CATEGORY_DRINK));
+        addMenu(new Menu(ZERO_COLA));
+        addMenu(new Menu(RED_WINE));
+        addMenu(new Menu(CHAMPAGNE));
     }
 
     private void addMenu(Menu menu) {
