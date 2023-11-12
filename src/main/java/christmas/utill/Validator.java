@@ -1,4 +1,4 @@
-package christmas.view;
+package christmas.utill;
 
 import christmas.domain.Menu;
 import christmas.domain.MenuBoard;
