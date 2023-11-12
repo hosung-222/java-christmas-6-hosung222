@@ -11,11 +11,12 @@ public class BadgeManager {
     private static final int VALUE_SANTA = 20000;
     private String badge;
 
-    public BadgeManager() {
+    public BadgeManager(int totalBenefit) {
         badge = BADGE_NON;
+        setBadge(totalBenefit);
     }
 
-    public String getBadge(int totalBenefit){
+    public void setBadge(int totalBenefit){
         if (totalBenefit > VALUE_SANTA){
             badge = BADGE_SANTA;
         } else if (totalBenefit > VALUE_TREE) {
@@ -23,6 +24,10 @@ public class BadgeManager {
         } else if (totalBenefit > VALUE_STAR) {
             badge = BADGE_STAR;
         }
+    }
+
+    @Override
+    public String toString() {
         return badge;
     }
 }

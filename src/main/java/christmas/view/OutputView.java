@@ -6,10 +6,11 @@ import christmas.domain.TotalEvent;
 
 public class OutputView {
 
-    private static final String START_EVENT_MESSAGE = "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기! \n";
+    private static final String START_EVENT_MESSAGE = "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     private static final String ORDER_MENU_TITLE = "<주문 메뉴>";
     private static final String BEFORE_SALE_PRICE_TITLE = "<할인 전 총주문 금액>";
     private static final String KOREA_WON = "원";
+    private static final String PRESENT_LIST_TITLE = "<증정 메뉴>";
     private static final String EVENT_LIST_TITLE = "<혜택 내역>";
     private static final String TOTAL_EVENT_AMOUNT_TITLE = "<총혜택 금액>";
     private static final String PAY_PRICE_TITLE = "<할인 후 예상 결제 금액>";
@@ -21,7 +22,9 @@ public class OutputView {
     }
 
     public static void printStartEventMessage(int date){
-        System.out.printf(START_EVENT_MESSAGE, date);
+        StringBuilder result = new StringBuilder();
+        result.append(START_EVENT_MESSAGE).append(NEW_LINE).append(NEW_LINE);
+        System.out.printf(result.toString(), date);
     }
 
     public static void printOrderList(Order order){
@@ -34,6 +37,11 @@ public class OutputView {
         StringBuilder result = new StringBuilder();
         result.append(String.format("%,d", order.getTotalPrice())).append(KOREA_WON).append(NEW_LINE);
         System.out.println(result);
+    }
+
+    public static void printPresentList(BillCalculator billCalculator){
+        System.out.println(PRESENT_LIST_TITLE);
+        System.out.println(billCalculator.getPresentList());
     }
 
     public static void printEventList(TotalEvent totalEvent){

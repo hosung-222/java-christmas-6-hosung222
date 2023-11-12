@@ -12,26 +12,35 @@ public class BillCalculator {
     public static final String NEXT_LINE = "\n";
     public static final String PAY_AMOUNT_SUFFIX = "원";
     private final TotalEvent totalEvent;
+    private final DdayEvent ddayEvent;
+    private final StarEvent starEvent;
+    private final PresentEvent presentEvent;
     private final Order order;
     private final int payAmount;
 
     public BillCalculator(TotalEvent totalEvent, Order order, int date) {
         this.totalEvent = totalEvent;
         this.order = order;
+        this.ddayEvent = new DdayEvent();
+        this.starEvent = new StarEvent();
+        this.presentEvent = new PresentEvent();
         calculateAllEvent(date);
+
         payAmount = calculatePayAmount();
     }
 
     private void calculateAllEvent(int date) {
-        DdayEvent ddayEvent = new DdayEvent();
+        // 크리스마스 디데이 할인
         ddayEvent.getDdayDiscount(date, totalEvent);
+        // 평일/주말 할인
         calculateWeekEvent(date);
-
-        StarEvent starEvent = new StarEvent();
+        // 특별 할인
         starEvent.getStarDiscount(date, totalEvent);
-
-        PresentEvent presentEvent = new PresentEvent();
+        // 증정 이벤트
         presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
+    }
+    public String getPresentList(){
+        return presentEvent.toString();
     }
 
     private void calculateWeekEvent(int date) {
