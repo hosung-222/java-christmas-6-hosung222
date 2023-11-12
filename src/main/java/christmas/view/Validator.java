@@ -3,6 +3,7 @@ package christmas.view;
 import christmas.domain.Menu;
 import christmas.domain.MenuBoard;
 import christmas.domain.Order;
+import java.util.Arrays;
 
 public class Validator {
 
@@ -23,7 +24,7 @@ public class Validator {
     }
 
     public static void validateMenu(String menuInput) {
-        String regex = "([가-힣\\w]+-\\d+)";
+        String regex = "([가-힣\\w]+-\\d+)(,[가-힣\\w]+-\\d+)*";
         if (!menuInput.matches(regex)) {
             throw new IllegalArgumentException(MENU_ERROR);
         }
@@ -41,4 +42,24 @@ public class Validator {
         }
     }
 
+    public static void validateAndAddToOrder(String menuName, int quantity, MenuBoard menuBoard, Order order) {
+        try {
+            Menu boardMenu = menuBoard.getMenuByName(menuName);
+            if (boardMenu == null) {
+                throw new IllegalArgumentException(MENU_ERROR);
+            }
+            order.addMenu(menuName, quantity);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(MENU_ERROR);
+        }
+    }
+
+    public static void validateOrder(Order order){
+        if (order.getTotalCount() == order.getDrinkCount()){
+            throw new IllegalArgumentException(MENU_ERROR);
+        }
+        if (order.getTotalCount() > 20){
+            throw new IllegalArgumentException(MENU_ERROR);
+        }
+    }
 }
