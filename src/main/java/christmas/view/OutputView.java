@@ -73,4 +73,9 @@ public class OutputView {
         System.out.println(billCalculator.toString());
     }
 
+    // 배지
+    public static void printBadge(BadgeManager badge){
+        System.out.println(BADGE_TITLE);
+        System.out.println(badge.toString());
+    }
 }
