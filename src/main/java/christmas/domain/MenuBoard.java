@@ -39,6 +39,10 @@ public class MenuBoard {
     }
 
     public Menu getMenuByName(String menuName) {
-        return menuMap.get(menuName);
+        Menu menu = menuMap.get(menuName);
+        if (menu == null){
+            throw new IllegalArgumentException();
+        }
+        return menu;
     }
 }

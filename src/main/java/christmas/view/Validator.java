@@ -45,9 +45,6 @@ public class Validator {
     public static void validateAndAddToOrder(String menuName, int quantity, MenuBoard menuBoard, Order order) {
         try {
             Menu boardMenu = menuBoard.getMenuByName(menuName);
-            if (boardMenu == null) {
-                throw new IllegalArgumentException(MENU_ERROR);
-            }
             order.addMenu(menuName, quantity);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(MENU_ERROR);
@@ -55,10 +52,9 @@ public class Validator {
     }
 
     public static void validateOrder(Order order){
-        if (order.getTotalCount() == order.getDrinkCount()){
-            throw new IllegalArgumentException(MENU_ERROR);
-        }
-        if (order.getTotalCount() > 20){
+        try {
+            order.isRightOrder();
+        }catch (IllegalArgumentException e){
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
