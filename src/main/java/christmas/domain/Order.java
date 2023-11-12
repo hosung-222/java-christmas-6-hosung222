@@ -7,6 +7,9 @@ public class Order {
     private static final String CATEGORY_MAIN = "메인";
     private static final String CATEGORY_DESERT = "디저트";
     private static final String CATEGORY_DRINK = "음료";
+    private static final String NEW_LINE = "\n";
+    private static final String SPACE = " ";
+    private static final String COUNT_SUFFIX = "개";
     private MenuBoard menuBoard;
     private Map<Menu, Integer> orderedItems;
 
@@ -72,8 +75,8 @@ public class Order {
         return drinkCOunt;
     }
 
-    public void isRightOrder(){
-        if (getTotalCount() >20 || getDrinkCount() == getTotalCount()){
+    public void isRightOrder() {
+        if (getTotalCount() > 20 || getDrinkCount() == getTotalCount()) {
             throw new IllegalArgumentException();
         }
     }
@@ -88,5 +91,18 @@ public class Order {
         return totalPrice;
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
+            Menu menu = entry.getKey();
+            int quantity = entry.getValue();
+            result.append(menu.getName())
+                    .append(SPACE)
+                    .append(quantity)
+                    .append(COUNT_SUFFIX)
+                    .append(NEW_LINE);
+        }
+        return result.toString();
+    }
 }
