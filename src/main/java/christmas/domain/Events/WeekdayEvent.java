@@ -14,8 +14,10 @@ public class WeekdayEvent {
     }
 
     public void getWeekdayDiscount(TotalEvent totalEvent, Order order) {
-
-        totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
+        int discountAmount = calculateDiscount(order);
+        if (discountAmount > 0) {
+            totalEvent.updateBenefitHistory(EVENT_TITLE, discountAmount);
+        }
     }
 
 }

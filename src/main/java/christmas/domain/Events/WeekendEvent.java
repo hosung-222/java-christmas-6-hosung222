@@ -8,7 +8,10 @@ public class WeekendEvent {
     private static final int DISCOUNT_DEFAULT = 2023;
 
     public void getWeekendDiscount(TotalEvent totalEvent, Order order) {
-        totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
+        int discountAmount = calculateDiscount(order);
+        if (discountAmount > 0) {
+            totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
+        }
     }
 
     public int calculateDiscount(Order order) {
