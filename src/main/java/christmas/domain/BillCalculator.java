@@ -24,20 +24,21 @@ public class BillCalculator {
         this.ddayEvent = new DdayEvent();
         this.starEvent = new StarEvent();
         this.presentEvent = new PresentEvent();
-        calculateAllEvent(date);
-
+        calculateAllEvent(date, order.getTotalPrice());
         payAmount = calculatePayAmount();
     }
 
-    private void calculateAllEvent(int date) {
-        // 크리스마스 디데이 할인
-        ddayEvent.getDdayDiscount(date, totalEvent);
-        // 평일/주말 할인
-        calculateWeekEvent(date);
-        // 특별 할인
-        starEvent.getStarDiscount(date, totalEvent);
-        // 증정 이벤트
-        presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
+    private void calculateAllEvent(int date, int totalPrice) {
+        if (totalPrice >= 10000) {
+            // 크리스마스 디데이 할인
+            ddayEvent.getDdayDiscount(date, totalEvent);
+            // 평일/주말 할인
+            calculateWeekEvent(date);
+            // 특별 할인
+            starEvent.getStarDiscount(date, totalEvent);
+            // 증정 이벤트
+            presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
+        }
     }
     public String getPresentList(){
         return presentEvent.toString();
@@ -55,14 +56,13 @@ public class BillCalculator {
     }
 
     private int calculatePayAmount() {
-        return order.getTotalPrice() - totalEvent.getTotalBenefit();
+        return order.getTotalPrice() - totalEvent.getTotalBenefitWithoutPresent();
     }
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         return result.append(String.format("%,d", payAmount))
-                .append(PAY_AMOUNT_SUFFIX)
                 .append(NEXT_LINE)
                 .toString();
     }
