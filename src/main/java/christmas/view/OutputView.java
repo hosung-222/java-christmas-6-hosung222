@@ -1,24 +1,21 @@
 package christmas.view;
 
+import static christmas.utill.Constants.*;
+
 import christmas.domain.BadgeManager;
 import christmas.domain.BillCalculator;
 import christmas.domain.Order;
 import christmas.domain.TotalEvent;
 
 public class OutputView {
-
     private static final String START_EVENT_MESSAGE = "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     private static final String ORDER_MENU_TITLE = "<주문 메뉴>";
     private static final String BEFORE_SALE_PRICE_TITLE = "<할인 전 총주문 금액>";
-    private static final String KOREA_WON = "원";
     private static final String PRESENT_LIST_TITLE = "<증정 메뉴>";
     private static final String EVENT_LIST_TITLE = "<혜택 내역>";
     private static final String TOTAL_EVENT_AMOUNT_TITLE = "<총혜택 금액>";
     private static final String PAY_PRICE_TITLE = "<할인 후 예상 결제 금액>";
     private static final String BADGE_TITLE = "<12월 이벤트 배지>";
-    private static final String MINUS = "-";
-    private static final String NEW_LINE = "\n";
-
 
     public static void printErrorMessageFor(IllegalArgumentException exception) {
         System.out.println(exception.getMessage());

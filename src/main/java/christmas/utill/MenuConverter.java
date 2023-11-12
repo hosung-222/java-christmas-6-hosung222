@@ -1,5 +1,6 @@
 package christmas.utill;
 
+import static christmas.utill.Constants.*;
 import static christmas.utill.Validator.changeQuantityToInt;
 import static christmas.utill.Validator.validateAndAddToOrder;
 import static christmas.utill.Validator.validateOrder;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 public class MenuConverter {
     public static Order convertToOrderedMenu(String menuInput) {
         MenuBoard menuBoard = new MenuBoard();
-        String[] menuArray = menuInput.split(",");
+        String[] menuArray = menuInput.split(COMA);
         Order order = new Order();
 
         Arrays.stream(menuArray)
@@ -22,9 +23,9 @@ public class MenuConverter {
     }
 
     public static void processMenu(String menu, MenuBoard menuBoard, Order order) {
-        String[] parts = menu.split("-");
-        String menuName = parts[0];
-        int quantity = changeQuantityToInt(parts[1]);
+        String[] parts = menu.split(AMOUNT_PREFIX);
+        String menuName = parts[NAME_INDEX];
+        int quantity = changeQuantityToInt(parts[QUANTITY_INDEX]);
         validateQuantity(quantity);
         validateAndAddToOrder(menuName, quantity, menuBoard, order);
         validateOrder(order);

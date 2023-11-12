@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import static christmas.utill.Constants.*;
+
 import christmas.domain.Events.DdayEvent;
 import christmas.domain.Events.PresentEvent;
 import christmas.domain.Events.StarEvent;
@@ -8,9 +10,6 @@ import christmas.domain.Events.WeekendEvent;
 import christmas.utill.DateValidator;
 
 public class BillCalculator {
-
-    public static final String NEXT_LINE = "\n";
-    public static final String PAY_AMOUNT_SUFFIX = "원";
     private final TotalEvent totalEvent;
     private final DdayEvent ddayEvent;
     private final StarEvent starEvent;
@@ -63,7 +62,7 @@ public class BillCalculator {
     public String toString() {
         StringBuilder result = new StringBuilder();
         return result.append(String.format("%,d", payAmount))
-                .append(NEXT_LINE)
+                .append(NEW_LINE)
                 .toString();
     }
 }

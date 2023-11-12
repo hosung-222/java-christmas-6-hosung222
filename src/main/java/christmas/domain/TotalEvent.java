@@ -1,18 +1,14 @@
 package christmas.domain;
 
+import static christmas.utill.Constants.*;
+
+import christmas.utill.Constants;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TotalEvent {
-    private static final String NEW_LINE = "\n";
-    private static final String SPACE = " ";
-    public static final String BENEFIT_AMOUNT_PREFIX = "-";
-    public static final String BENEFIT_AMOUNT_SUFFIX = "원";
-    public static final String NON_AMOUNT = "없음";
-    public static final String COLON = ":";
-
+    private static final String EVENT_TITLE = "증정 이벤트";
     private final Map<String, Integer> benefitHistory = new HashMap<>();
-
     private int totalBenefit;
 
     public TotalEvent() {
@@ -37,7 +33,7 @@ public class TotalEvent {
             Integer benefitAmount = entry.getValue();
 
             // 증정 상품이 아닌 경우에만 실 할인 적용
-            if (!benefitName.equals("증정 이벤트")) {
+            if (!benefitName.equals(EVENT_TITLE)) {
                 realTotalBenefit += benefitAmount;
             }
         }
@@ -62,9 +58,9 @@ public class TotalEvent {
             result.append(benefitName)
                     .append(COLON)
                     .append(SPACE)
-                    .append(BENEFIT_AMOUNT_PREFIX)
+                    .append(AMOUNT_PREFIX)
                     .append(String.format("%,d", benefitAmount))
-                    .append(BENEFIT_AMOUNT_SUFFIX)
+                    .append(QUANTITY_SUFFIX)
                     .append(NEW_LINE);
         }
         if (result.length() == 0) {

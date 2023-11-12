@@ -1,14 +1,10 @@
 package christmas.domain;
 
+import static christmas.utill.Constants.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MenuBoard {
-    private static final String CATEGORY_APPETIZER = "애피타이저";
-    private static final String CATEGORY_MAIN = "메인";
-    private static final String CATEGORY_DESERT = "디저트";
-    private static final String CATEGORY_DRINK = "음료";
-
     private Map<String, Menu> menuMap;
 
     public MenuBoard() {

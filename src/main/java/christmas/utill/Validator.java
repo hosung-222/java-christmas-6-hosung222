@@ -29,6 +29,7 @@ public class Validator {
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
+
     public static int changeQuantityToInt(String input) {
         try {
             return Integer.parseInt(input);
@@ -36,6 +37,7 @@ public class Validator {
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
+
     public static void validateQuantity(int quantity) {
         if (quantity < 1) {
             throw new IllegalArgumentException(MENU_ERROR);
@@ -51,10 +53,10 @@ public class Validator {
         }
     }
 
-    public static void validateOrder(Order order){
+    public static void validateOrder(Order order) {
         try {
             order.isRightOrder();
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(MENU_ERROR);
         }
     }
