@@ -8,19 +8,21 @@ import christmas.domain.Events.WeekendEvent;
 import christmas.utill.DateValidator;
 
 public class BillCalculator {
+
+    public static final String NEXT_LINE = "\n";
+    public static final String PAY_AMOUNT_SUFFIX = "원";
     private final TotalEvent totalEvent;
     private final Order order;
+    private final int payAmount;
 
-    public BillCalculator(TotalEvent totalEvent, Order order) {
+    public BillCalculator(TotalEvent totalEvent, Order order, int date) {
         this.totalEvent = totalEvent;
         this.order = order;
+        calculateAllEvent(date);
+        payAmount = calculatePayAmount();
     }
 
-    public void calculateTotalAmount() {
-        order.getTotalPrice();
-    }
-
-    public void calculateAllEvent(int date) {
+    private void calculateAllEvent(int date) {
         DdayEvent ddayEvent = new DdayEvent();
         ddayEvent.getDdayDiscount(date, totalEvent);
         calculateWeekEvent(date);
@@ -32,7 +34,7 @@ public class BillCalculator {
         presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
     }
 
-    public void calculateWeekEvent(int date) {
+    private void calculateWeekEvent(int date) {
         if (DateValidator.isWeekday(date)) {
             WeekdayEvent weekdayEvent = new WeekdayEvent();
             weekdayEvent.getWeekdayDiscount(totalEvent, order);
@@ -41,5 +43,18 @@ public class BillCalculator {
             WeekendEvent weekendEvent = new WeekendEvent();
             weekendEvent.getWeekendDiscount(totalEvent, order);
         }
+    }
+
+    private int calculatePayAmount() {
+        return order.getTotalPrice() - totalEvent.getTotalBenefit();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        return result.append(String.format("%,d", payAmount))
+                .append(PAY_AMOUNT_SUFFIX)
+                .append(NEXT_LINE)
+                .toString();
     }
 }

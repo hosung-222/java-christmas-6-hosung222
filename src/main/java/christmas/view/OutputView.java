@@ -48,4 +48,8 @@ public class OutputView {
         System.out.println(result);
     }
 
+    public static void printPayAmount(BillCalculator billCalculator){
+        System.out.println(PAY_PRICE_TITLE);
+        System.out.println(billCalculator.toString());
+    }
 }
