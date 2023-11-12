@@ -8,6 +8,7 @@ public class TotalEvent {
     private static final String SPACE = " ";
     public static final String BENEFIT_AMOUNT_PREFIX = " -";
     public static final String BENEFIT_AMOUNT_SUFFIX = "원";
+    public static final String NON_AMOUNT = "없음";
 
     private final Map<String, Integer> benefitHistory = new HashMap<>();
 
@@ -49,6 +50,10 @@ public class TotalEvent {
                     .append(BENEFIT_AMOUNT_PREFIX)
                     .append(String.format("%,d", benefitAmount))
                     .append(BENEFIT_AMOUNT_SUFFIX)
+                    .append(NEW_LINE);
+        }
+        if (result.length() == 0) {
+            result.append(NON_AMOUNT)
                     .append(NEW_LINE);
         }
         return result.toString();
