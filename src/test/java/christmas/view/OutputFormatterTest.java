@@ -84,6 +84,15 @@ class OutputFormatterTest {
 
         assertThat(result).isEqualTo("-5,000원\n");
     }
+    @DisplayName("총 할인 금액이 없을 때  정상적으로 포맷하는지 확인")
+    @Test
+    void formatTotalSaleAmount_validZeroTotalBenefit_formattedString() {
+        int totalBenefit = 0;
+
+        String result = OutputFormatter.formatTotalSaleAmount(totalBenefit);
+
+        assertThat(result).isEqualTo("0원\n");
+    }
 
     @DisplayName("결제 예상 금액을 정상적으로 포맷하는지 확인")
     @Test

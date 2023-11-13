@@ -43,7 +43,7 @@ class TotalEventTest {
 
         int totalBenefitWithoutPresent = totalEvent.getTotalBenefitWithoutPresent();
 
-        assertThat(totalBenefitWithoutPresent).isEqualTo(6046); // "크리스마스 할인" + "생일 이벤트"
+        assertThat(totalBenefitWithoutPresent).isEqualTo(6046);
     }
 
     @Test
@@ -56,6 +56,6 @@ class TotalEventTest {
 
         int totalBenefit = totalEvent.getTotalBenefit();
 
-        assertThat(totalBenefit).isEqualTo(29100); // "크리스마스 할인" + "생일 이벤트" + "증정 이벤트"
+        assertThat(totalBenefit).isEqualTo(29100);
     }
 }
