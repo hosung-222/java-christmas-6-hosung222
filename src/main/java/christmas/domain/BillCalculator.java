@@ -23,10 +23,12 @@ public class BillCalculator {
     }
 
     private void calculateAllEvent(int date, int totalPrice) {
-        totalEvent.applyDdayEvent(date);
-        totalEvent.applyWeekEvent(date, order);
-        totalEvent.applyStarEvent(date);
-        totalEvent.applyPresentEvent(totalPrice);
+        if (totalPrice >= 10000) {
+            totalEvent.applyDdayEvent(date);
+            totalEvent.applyWeekEvent(date, order);
+            totalEvent.applyStarEvent(date);
+            totalEvent.applyPresentEvent(totalPrice);
+        }
     }
 
 

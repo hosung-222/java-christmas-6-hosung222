@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.controller.Controller;
 import christmas.domain.BadgeManager;
 import christmas.domain.BillCalculator;
 import christmas.domain.Order;
@@ -10,22 +11,7 @@ import christmas.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        int date = InputHandler.receiveValidatedDate();
-        Order order = InputHandler.receiveValidatedMenu();
-        OutputView.printStartEventMessage(date);
-        OutputView.printOrderList(order);
-        OutputView.printBeforeSalePrice(order);
-
-        TotalEvent totalEvent = new TotalEvent();
-        BillCalculator billCalculator = new BillCalculator(totalEvent, order, date);
-        OutputView.printPresentList(totalEvent);
-        OutputView.printEventList(totalEvent);
-        OutputView.printTotalSaleAmount(totalEvent);
-
-        OutputView.printPayPrice(billCalculator);
-
-        BadgeManager badgeManager = new BadgeManager(totalEvent.getTotalBenefit());
-        OutputView.printBadge(badgeManager);
-
+        Controller controller = new Controller(new TotalEvent());
+        controller.run();
     }
 }

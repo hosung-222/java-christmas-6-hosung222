@@ -25,9 +25,7 @@ public class OutputFormatter {
     }
 
     public static String formatBeforeSalePrice(int totalAmount){
-        StringBuilder result = new StringBuilder();
-        result.append(String.format(BILL_FORMAT, totalAmount));
-        return result.toString();
+        return String.format(BILL_FORMAT, totalAmount);
     }
 
     public static String formatPresentList(Map<String, Integer> presentList) {
@@ -59,15 +57,12 @@ public class OutputFormatter {
         return result.toString();
     }
     public static String formatTotalSaleAmount(int totalBenefit){
-        StringBuilder result = new StringBuilder();
-        result.append(String.format(SALE_BILL_FORMAT,totalBenefit));
-        return result.toString();
+        return String.format(totalBenefit > 0 ? SALE_BILL_FORMAT : BILL_FORMAT, totalBenefit);
+
     }
 
     public static String formatPayAmount(int payAmount){
-        StringBuilder result = new StringBuilder();
-        result.append(String.format(BILL_FORMAT, payAmount));
-        return result.toString();
+        return String.format(BILL_FORMAT, payAmount);
     }
 
 }

@@ -15,11 +15,11 @@ import java.util.Map;
 public class TotalEvent {
     private static final String EVENT_TITLE = "증정 이벤트";
     private final Map<String, Integer> benefitHistory = new HashMap<>();
-    private DdayEvent ddayEvent;
-    private StarEvent starEvent;
-    private PresentEvent presentEvent;
-    private WeekdayEvent weekdayEvent;
-    private WeekendEvent weekendEvent;
+    private final DdayEvent ddayEvent;
+    private final StarEvent starEvent;
+    private final PresentEvent presentEvent;
+    private final WeekdayEvent weekdayEvent;
+    private final WeekendEvent weekendEvent;
     private Order order;
     private int totalBenefit;
 
@@ -33,31 +33,25 @@ public class TotalEvent {
     }
 
     public void applyDdayEvent(int date) {
-        if (totalBenefit >= 10000) {
-            ddayEvent.getDdayDiscount(date, this);
-        }
+
+        ddayEvent.getDdayDiscount(date, this);
+
     }
 
     public void applyWeekEvent(int date, Order order) {
-        if (totalBenefit >= 10000) {
-            if (DateValidator.isWeekday(date)) {
-                weekdayEvent.getWeekdayDiscount(this, order);
-            } else if (DateValidator.isWeekend(date)) {
-                weekendEvent.getWeekendDiscount(this, order);
-            }
+        if (DateValidator.isWeekday(date)) {
+            weekdayEvent.getWeekdayDiscount(this, order);
+        } else if (DateValidator.isWeekend(date)) {
+            weekendEvent.getWeekendDiscount(this, order);
         }
     }
 
     public void applyStarEvent(int date) {
-        if (totalBenefit >= 10000) {
-            starEvent.getStarDiscount(date, this);
-        }
+        starEvent.getStarDiscount(date, this);
     }
 
     public void applyPresentEvent(int totalPrice) {
-        if (totalPrice >= 10000) {
-            presentEvent.getPresentEvent(totalPrice, this);
-        }
+        presentEvent.getPresentEvent(totalPrice, this);
     }
 
     public void updateBenefitHistory(String eventName, int discountAmount) {
