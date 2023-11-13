@@ -4,18 +4,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.domain.TotalEvent;
 import java.util.Map;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class PresentEventTest {
+    @DisplayName("12만원 이상일때 샴폐인 증정")
     @Test
     void testGetPresentEventWhenApplicable() {
         PresentEvent presentEvent = new PresentEvent();
         TotalEvent totalEvent = new TotalEvent();
 
-        // 테스트를 위한 가상의 주문 금액
-        int totalAmount = 130000;
+        int totalAmount = 120000;
 
-        // PresentEvent가 적용될 경우 증정 메뉴와 할인 금액을 가져옴
         Map<String, Integer> presentEventResult = presentEvent.getPresentEvent(totalAmount, totalEvent);
 
         // 예상 결과와 비교
@@ -23,15 +23,14 @@ class PresentEventTest {
         assertEquals(25000, totalEvent.getBenefitHistory().get("증정 이벤트"));
     }
 
+    @DisplayName("12만원 아래일때 샴폐인 증정 안됨")
     @Test
     void testGetPresentEventWhenNotApplicable() {
         PresentEvent presentEvent = new PresentEvent();
         TotalEvent totalEvent = new TotalEvent();
 
-        // 테스트를 위한 가상의 주문 금액
         int totalAmount = 110000;
 
-        // PresentEvent가 적용되지 않을 경우 빈 맵을 반환
         Map<String, Integer> presentEventResult = presentEvent.getPresentEvent(totalAmount, totalEvent);
 
         // 결과가 빈 맵인지 확인
