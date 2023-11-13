@@ -2,7 +2,6 @@ package christmas.domain;
 
 import static christmas.enums.Badge.*;
 
-import christmas.enums.Badge;
 
 public class BadgeManager {
 

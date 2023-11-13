@@ -1,7 +1,6 @@
 package christmas.domain;
 
 import static christmas.enums.Menus.*;
-import static christmas.utill.Constants.*;
 import java.util.HashMap;
 import java.util.Map;
 

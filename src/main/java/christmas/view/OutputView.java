@@ -5,11 +5,8 @@ import static christmas.view.OutputFormatter.*;
 
 import christmas.domain.BadgeManager;
 import christmas.domain.BillCalculator;
-import christmas.domain.Events.PresentEvent;
-import christmas.domain.Menu;
 import christmas.domain.Order;
 import christmas.domain.TotalEvent;
-import java.util.Map;
 
 public class OutputView {
     private static final String START_EVENT_MESSAGE = "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";

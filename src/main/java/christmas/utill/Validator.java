@@ -3,7 +3,6 @@ package christmas.utill;
 import christmas.domain.Menu;
 import christmas.domain.MenuBoard;
 import christmas.domain.Order;
-import java.util.Arrays;
 
 public class Validator {
 

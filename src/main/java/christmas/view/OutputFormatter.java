@@ -3,10 +3,7 @@ package christmas.view;
 import static christmas.utill.Constants.*;
 
 import christmas.domain.Menu;
-import christmas.domain.Order;
-import christmas.utill.Constants;
 import java.util.Map;
-import org.mockito.internal.matchers.Or;
 
 public class OutputFormatter {
     private static final String BILL_FORMAT = "%,d원\n";

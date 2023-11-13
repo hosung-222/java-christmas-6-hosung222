@@ -1,9 +1,7 @@
 package christmas.domain.Events;
 
 import static christmas.enums.Menus.*;
-import static christmas.utill.Constants.*;
 import christmas.domain.TotalEvent;
-import christmas.enums.Menus;
 import java.util.HashMap;
 import java.util.Map;
 

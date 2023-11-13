@@ -1,9 +1,7 @@
 package christmas.domain;
 
 import static christmas.enums.Category.*;
-import static christmas.utill.Constants.*;
 
-import christmas.enums.Category;
 import java.util.HashMap;
 import java.util.Map;
 

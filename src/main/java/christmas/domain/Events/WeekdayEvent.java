@@ -2,8 +2,6 @@ package christmas.domain.Events;
 
 import christmas.domain.Order;
 import christmas.domain.TotalEvent;
-import java.util.HashMap;
-import java.util.Map;
 
 public class WeekdayEvent {
     private static final String EVENT_TITLE = "평일 할인";
