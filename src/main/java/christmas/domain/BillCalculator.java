@@ -8,6 +8,7 @@ import christmas.domain.Events.StarEvent;
 import christmas.domain.Events.WeekdayEvent;
 import christmas.domain.Events.WeekendEvent;
 import christmas.utill.DateValidator;
+import java.util.Map;
 
 public class BillCalculator {
     private final TotalEvent totalEvent;
@@ -39,9 +40,6 @@ public class BillCalculator {
             presentEvent.getPresentEvent(order.getTotalPrice(), totalEvent);
         }
     }
-    public String getPresentList(){
-        return presentEvent.toString();
-    }
 
     private void calculateWeekEvent(int date) {
         if (DateValidator.isWeekday(date)) {
@@ -58,11 +56,13 @@ public class BillCalculator {
         return order.getTotalPrice() - totalEvent.getTotalBenefitWithoutPresent();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        return result.append(String.format("%,d", payAmount))
-                .append(NEW_LINE)
-                .toString();
+
+    public int getPayAmount(){
+        return payAmount;
     }
+
+    public Map<String, Integer> getPresentList(){
+        return presentEvent.getPresent();
+    }
+
 }

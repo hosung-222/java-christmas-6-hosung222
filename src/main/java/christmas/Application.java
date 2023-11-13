@@ -22,7 +22,7 @@ public class Application {
         OutputView.printEventList(totalEvent);
         OutputView.printTotalSaleAmount(totalEvent);
 
-        OutputView.printPayAmount(billCalculator);
+        OutputView.printPayPrice(billCalculator);
 
         BadgeManager badgeManager = new BadgeManager(totalEvent.getTotalBenefit());
         OutputView.printBadge(badgeManager);

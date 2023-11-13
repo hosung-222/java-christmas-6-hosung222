@@ -1,7 +1,9 @@
 package christmas.domain;
 
+import static christmas.enums.Category.*;
 import static christmas.utill.Constants.*;
 
+import christmas.enums.Category;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,16 +24,12 @@ public class Order {
         orderedItems.put(menu, quantity);
     }
 
-    public Map<Menu, Integer> getOrderedItems() {
-        return orderedItems;
-    }
-
     public int getDesertCount() {
         int desertCount = 0;
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if (menu.getCategory().equals(CATEGORY_DESERT)) {
+            if (menu.getCategory().equals(DESSERT.getKoreanName())) {
                 desertCount += quantity;
             }
         }
@@ -43,7 +41,7 @@ public class Order {
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if (menu.getCategory().equals(CATEGORY_MAIN)) {
+            if (menu.getCategory().equals(MAIN.getKoreanName())) {
                 mainCount += quantity;
             }
         }
@@ -55,7 +53,7 @@ public class Order {
         for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
             Menu menu = entry.getKey();
             int quantity = entry.getValue();
-            if (menu.getCategory().equals(CATEGORY_DRINK)) {
+            if (menu.getCategory().equals(DRINK.getKoreanName())) {
                 drinkCount += quantity;
             }
         }
@@ -87,18 +85,7 @@ public class Order {
         return totalPrice;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (Map.Entry<Menu, Integer> entry : orderedItems.entrySet()) {
-            Menu menu = entry.getKey();
-            int quantity = entry.getValue();
-            result.append(menu.getName())
-                    .append(SPACE)
-                    .append(quantity)
-                    .append(QUANTITY_SUFFIX)
-                    .append(NEW_LINE);
-        }
-        return result.toString();
+    public Map<Menu, Integer> getOrderItems(){
+        return orderedItems;
     }
 }

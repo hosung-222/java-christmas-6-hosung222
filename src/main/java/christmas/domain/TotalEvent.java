@@ -40,6 +40,7 @@ public class TotalEvent {
         return realTotalBenefit;
     }
 
+    // 총 할인 금액
     public int getTotalBenefit() {
         int totalBenefit = 0;
         for (Map.Entry<String, Integer> entry : benefitHistory.entrySet()) {
@@ -49,24 +50,26 @@ public class TotalEvent {
         return totalBenefit;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, Integer> entry : benefitHistory.entrySet()) {
-            String benefitName = entry.getKey();
-            Integer benefitAmount = entry.getValue();
-            result.append(benefitName)
-                    .append(COLON)
-                    .append(SPACE)
-                    .append(AMOUNT_PREFIX)
-                    .append(String.format("%,d", benefitAmount))
-                    .append(QUANTITY_SUFFIX)
-                    .append(NEW_LINE);
-        }
-        if (result.length() == 0) {
-            result.append(NON_AMOUNT)
-                    .append(NEW_LINE);
-        }
-        return result.toString();
-    }
+
+
+//    @Override
+//    public String toString() {
+//        StringBuilder result = new StringBuilder();
+//        for (Map.Entry<String, Integer> entry : benefitHistory.entrySet()) {
+//            String benefitName = entry.getKey();
+//            Integer benefitAmount = entry.getValue();
+//            result.append(benefitName)
+//                    .append(COLON)
+//                    .append(SPACE)
+//                    .append(AMOUNT_PREFIX)
+//                    .append(String.format("%,d", benefitAmount))
+//                    .append(QUANTITY_SUFFIX)
+//                    .append(NEW_LINE);
+//        }
+//        if (result.length() == 0) {
+//            result.append(NON_AMOUNT)
+//                    .append(NEW_LINE);
+//        }
+//        return result.toString();
+//    }
 }

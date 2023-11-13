@@ -23,8 +23,7 @@ public class BadgeManager {
         }
     }
 
-    @Override
-    public String toString() {
+    public String getBadge(){
         return badge;
     }
 }

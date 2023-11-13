@@ -10,10 +10,6 @@ public class Constants {
     public static final String COLON = ":";
     public static final String COMA = ",";
 
-    public static final String CATEGORY_APPETIZER = "애피타이저";
-    public static final String CATEGORY_MAIN = "메인";
-    public static final String CATEGORY_DESERT = "디저트";
-    public static final String CATEGORY_DRINK = "음료";
 
     public static final int NAME_INDEX = 0;
     public static final int QUANTITY_INDEX = 1;
