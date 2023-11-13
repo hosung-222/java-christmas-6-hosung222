@@ -9,9 +9,10 @@ import java.util.Map;
 import org.mockito.internal.matchers.Or;
 
 public class OutputFormatter {
-    private static final String BILL_FORMAT = "%,d원 \n";
-    private static final String EVENT_BENEFIT_FORMAT = "%s: -%,d원 \n";
-    private static final String ORDER_MENU_FORMAT = "%s %d개 \n";
+    private static final String BILL_FORMAT = "%,d원\n";
+    private static final String SALE_BILL_FORMAT = "-%,d원\n";
+    private static final String EVENT_BENEFIT_FORMAT = "%s: -%,d원\n";
+    private static final String ORDER_MENU_FORMAT = "%s %d개\n";
 
     public static String formatOrderList(Map<Menu,Integer> orders){
         StringBuilder result = new StringBuilder();
@@ -59,7 +60,7 @@ public class OutputFormatter {
     }
     public static String formatTotalSaleAmount(int totalBenefit){
         StringBuilder result = new StringBuilder();
-        result.append(String.format(BILL_FORMAT,totalBenefit));
+        result.append(String.format(SALE_BILL_FORMAT,totalBenefit));
         return result.toString();
     }
 

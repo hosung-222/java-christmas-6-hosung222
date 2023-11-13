@@ -14,12 +14,12 @@ public class BadgeManager {
     }
 
     public void setBadge(int totalBenefit){
-        if (totalBenefit > SANTA.getMinValue()){
+        if (totalBenefit >= SANTA.getMinValue()){
             badge = SANTA.getName();
-        } else if (totalBenefit > TREE.getMinValue()) {
+        } else if (totalBenefit >= TREE.getMinValue()) {
             badge = TREE.getName();
-        } else if (totalBenefit > STAR.getMinValue()) {
-            badge = SANTA.getName();
+        } else if (totalBenefit >= STAR.getMinValue()) {
+            badge = STAR.getName();
         }
     }
 

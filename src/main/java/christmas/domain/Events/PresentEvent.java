@@ -15,7 +15,7 @@ public class PresentEvent {
     private final Map<String, Integer> present = new HashMap<>();   // Map < 증정 선물 이름 : 수량 >
 
     public boolean isPresentEventApplicable(int totalAmount) {
-        return totalAmount > MINIMUM_AMOUNT_FOR_PRESENT;
+        return totalAmount >= MINIMUM_AMOUNT_FOR_PRESENT;
     }
 
     public Map<String, Integer> getPresentEvent(int totalAmount, TotalEvent totalEvent) {
