@@ -72,9 +72,9 @@ class OutputViewTest {
         Order order = new Order();
         order.addMenu("양송이수프",2);
         order.addMenu("티본스테이크",2);
-        BillCalculator billCalculator = new BillCalculator(new TotalEvent(), order, 13);
-
-        OutputView.printPresentList(billCalculator);
+        TotalEvent totalEvent = new TotalEvent();
+        BillCalculator billCalculator = new BillCalculator(totalEvent, order, 13);
+        OutputView.printPresentList(totalEvent);
 
         assertThat(outputStream.toString()).isEqualTo("<증정 메뉴>\n샴페인 1개\n\n");
     }
@@ -85,9 +85,10 @@ class OutputViewTest {
         System.setOut(new PrintStream(outputStream));
         Order order = new Order();
         order.addMenu("양송이수프",2);
-        BillCalculator billCalculator = new BillCalculator(new TotalEvent(), order, 13);
+        TotalEvent totalEvent = new TotalEvent();
+        BillCalculator billCalculator = new BillCalculator(totalEvent, order, 13);
 
-        OutputView.printPresentList(billCalculator);
+        OutputView.printPresentList(totalEvent);
 
         assertThat(outputStream.toString()).isEqualTo("<증정 메뉴>\n없음\n\n");
     }

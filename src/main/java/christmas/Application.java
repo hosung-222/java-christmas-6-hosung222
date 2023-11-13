@@ -18,7 +18,7 @@ public class Application {
 
         TotalEvent totalEvent = new TotalEvent();
         BillCalculator billCalculator = new BillCalculator(totalEvent, order, date);
-        OutputView.printPresentList(billCalculator);
+        OutputView.printPresentList(totalEvent);
         OutputView.printEventList(totalEvent);
         OutputView.printTotalSaleAmount(totalEvent);
 

@@ -5,6 +5,7 @@ import static christmas.view.OutputFormatter.*;
 
 import christmas.domain.BadgeManager;
 import christmas.domain.BillCalculator;
+import christmas.domain.Events.PresentEvent;
 import christmas.domain.Menu;
 import christmas.domain.Order;
 import christmas.domain.TotalEvent;
@@ -44,9 +45,9 @@ public class OutputView {
     }
 
     // 증정 메뉴
-    public static void printPresentList(BillCalculator billCalculator) {
+    public static void printPresentList(TotalEvent totalEvent) {
         System.out.println(PRESENT_LIST_TITLE);
-        System.out.println(formatPresentList(billCalculator.getPresentList()));
+        System.out.println(formatPresentList(totalEvent.getPresent()));
     }
 
     // 혜택 내역
