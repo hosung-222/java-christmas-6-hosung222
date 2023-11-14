@@ -14,7 +14,7 @@ class StarEventTest {
         TotalEvent totalEvent = new TotalEvent();
 
         // 별이 있는 날인 12월 3일에 할인 적용
-        starEvent.getStarDiscount(3, totalEvent);
+        starEvent.applyStarDiscount(3, totalEvent);
 
         // 혜택 내역 확인
         assertEquals(1000, totalEvent.getBenefitHistory().get("특별 할인"));
@@ -27,7 +27,7 @@ class StarEventTest {
         TotalEvent totalEvent = new TotalEvent();
 
         // 별이 없는 날인 12월 11일에 할인 적용 X
-        starEvent.getStarDiscount(11, totalEvent);
+        starEvent.applyStarDiscount(11, totalEvent);
 
         // 혜택 내역 확인
         assertNull(totalEvent.getBenefitHistory().get("특별 할인"));

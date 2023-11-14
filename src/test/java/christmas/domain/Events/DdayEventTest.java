@@ -13,9 +13,9 @@ class DdayEventTest {
     public void getDiscountAmount_shouldReturnCorrectDiscount() {
         DdayEvent ddayEvent = new DdayEvent();
 
-        assertEquals(1000, ddayEvent.getDiscountAmount(1));
-        assertEquals(1100, ddayEvent.getDiscountAmount(2));
-        assertEquals(3400, ddayEvent.getDiscountAmount(25));
+        assertEquals(1000, ddayEvent.calculateDiscountAmount(1));
+        assertEquals(1100, ddayEvent.calculateDiscountAmount(2));
+        assertEquals(3400, ddayEvent.calculateDiscountAmount(25));
 
     }
     @DisplayName("1~25일에서만 할인이 적용되는지 확인")
@@ -35,11 +35,11 @@ class DdayEventTest {
         DdayEvent ddayEvent = new DdayEvent();
         TotalEvent totalEvent = new TotalEvent();
 
-        ddayEvent.getDdayDiscount(1, totalEvent);
+        ddayEvent.applyDdayDiscount(1, totalEvent);
         // 혜택 내역 확인
         assertEquals(1000, totalEvent.getBenefitHistory().get("크리스마스 디데이 할인"));
 
-        ddayEvent.getDdayDiscount(2, totalEvent);
+        ddayEvent.applyDdayDiscount(2, totalEvent);
         // 혜택 내역 확인
         assertEquals(2100, totalEvent.getBenefitHistory().get("크리스마스 디데이 할인"));
     }

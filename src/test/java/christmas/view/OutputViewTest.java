@@ -74,6 +74,7 @@ class OutputViewTest {
         order.addMenu("티본스테이크",2);
         TotalEvent totalEvent = new TotalEvent();
         BillCalculator billCalculator = new BillCalculator(totalEvent, order, 13);
+        totalEvent.applyPresentEvent(billCalculator.getPayAmount());
         OutputView.printPresentList(totalEvent);
 
         assertThat(outputStream.toString()).isEqualTo("<증정 메뉴>\n샴페인 1개\n\n");

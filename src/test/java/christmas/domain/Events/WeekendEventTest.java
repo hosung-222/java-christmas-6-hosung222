@@ -57,7 +57,7 @@ class WeekendEventTest {
         assertEquals(1, order.getMainCount());
 
         // 평일 할인 적용 확인
-        weekendEvent.getWeekendDiscount(totalEvent, order);
+        weekendEvent.applyWeekendDiscount(totalEvent, order);
 
         // 혜택 내역 확인
         assertEquals(2023, totalEvent.getBenefitHistory().get("주말 할인"));

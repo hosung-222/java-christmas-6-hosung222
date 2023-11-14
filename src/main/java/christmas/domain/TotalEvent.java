@@ -32,24 +32,24 @@ public class TotalEvent {
 
     public void applyDdayEvent(int date) {
 
-        ddayEvent.getDdayDiscount(date, this);
+        ddayEvent.applyDdayDiscount(date, this);
 
     }
 
     public void applyWeekEvent(int date, Order order) {
         if (DateValidator.isWeekday(date)) {
-            weekdayEvent.getWeekdayDiscount(this, order);
+            weekdayEvent.applyWeekdayDiscount(this, order);
         } else if (DateValidator.isWeekend(date)) {
-            weekendEvent.getWeekendDiscount(this, order);
+            weekendEvent.applyWeekendDiscount(this, order);
         }
     }
 
     public void applyStarEvent(int date) {
-        starEvent.getStarDiscount(date, this);
+        starEvent.applyStarDiscount(date, this);
     }
 
     public void applyPresentEvent(int totalPrice) {
-        presentEvent.getPresentEvent(totalPrice, this);
+        presentEvent.applyPresentEvent(totalPrice, this);
     }
 
     public void updateBenefitHistory(String eventName, int discountAmount) {

@@ -15,8 +15,8 @@ class PresentEventTest {
         TotalEvent totalEvent = new TotalEvent();
 
         int totalAmount = 120000;
-
-        Map<String, Integer> presentEventResult = presentEvent.getPresentEvent(totalAmount, totalEvent);
+        presentEvent.applyPresentEvent(totalAmount,totalEvent);
+        Map<String, Integer> presentEventResult = presentEvent.getPresentEventResult();
 
         // 예상 결과와 비교
         assertEquals(1, presentEventResult.get("샴페인"));
@@ -31,7 +31,7 @@ class PresentEventTest {
 
         int totalAmount = 110000;
 
-        Map<String, Integer> presentEventResult = presentEvent.getPresentEvent(totalAmount, totalEvent);
+        Map<String, Integer> presentEventResult = presentEvent.getPresentEventResult();
 
         // 결과가 빈 맵인지 확인
         assertEquals(0, presentEventResult.size());

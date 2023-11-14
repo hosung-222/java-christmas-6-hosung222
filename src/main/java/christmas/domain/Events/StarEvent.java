@@ -10,7 +10,7 @@ public class StarEvent {
     private static final List<Integer> STAR_DATES = Arrays.asList(3, 10, 17, 24, 25, 31);
 
 
-    public void getStarDiscount(int date, TotalEvent totalEvent) {
+    public void applyStarDiscount(int date, TotalEvent totalEvent) {
         if (STAR_DATES.contains(date)) {
             // 별이 있는 날에만 할인 적용
             totalEvent.updateBenefitHistory(EVENT_TITLE, DISCOUNT_AMOUNT);

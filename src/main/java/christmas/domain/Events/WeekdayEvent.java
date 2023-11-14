@@ -11,11 +11,10 @@ public class WeekdayEvent {
         return DISCOUNT_DEFAULT * order.getDesertCount();
     }
 
-    public void getWeekdayDiscount(TotalEvent totalEvent, Order order) {
+    public void applyWeekdayDiscount(TotalEvent totalEvent, Order order) {
         int discountAmount = calculateDiscount(order);
         if (discountAmount > 0) {
             totalEvent.updateBenefitHistory(EVENT_TITLE, discountAmount);
         }
     }
-
 }

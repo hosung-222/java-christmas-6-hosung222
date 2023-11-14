@@ -9,7 +9,7 @@ public class DdayEvent {
     private static final int DISCOUNT_START_POINT = 1000;
     private static final int DISCOUNT_AMOUNT = 100;
 
-    public int getDiscountAmount(int date){
+    public int calculateDiscountAmount(int date){
         return DISCOUNT_START_POINT + DISCOUNT_AMOUNT * (date-EVENT_START_DAY);
     }
 
@@ -17,10 +17,10 @@ public class DdayEvent {
         return EVENT_START_DAY <= date && date <= EVENT_END_DAY;
     }
 
-    public void getDdayDiscount(int date , TotalEvent totalEvent){
+    public void applyDdayDiscount(int date , TotalEvent totalEvent){
         if(validateDate(date)){
             // <혜택 내역> 업데이트 "크리스마스 디데이 할인" : discountAmount
-            totalEvent.updateBenefitHistory(EVENT_TITLE, getDiscountAmount(date));
+            totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscountAmount(date));
         }
     }
 

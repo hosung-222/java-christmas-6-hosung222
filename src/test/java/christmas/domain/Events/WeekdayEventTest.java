@@ -55,7 +55,7 @@ class WeekdayEventTest {
         assertEquals(2, order.getDesertCount());
 
         // 평일 할인 적용 확인
-        weekdayEvent.getWeekdayDiscount(totalEvent, order);
+        weekdayEvent.applyWeekdayDiscount(totalEvent, order);
 
         // 혜택 내역 확인
         assertEquals(4046, totalEvent.getBenefitHistory().get("평일 할인"));

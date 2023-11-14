@@ -7,10 +7,10 @@ public class WeekendEvent {
     private static final String EVENT_TITLE = "주말 할인";
     private static final int DISCOUNT_DEFAULT = 2023;
 
-    public void getWeekendDiscount(TotalEvent totalEvent, Order order) {
+    public void applyWeekendDiscount(TotalEvent totalEvent, Order order) {
         int discountAmount = calculateDiscount(order);
         if (discountAmount > 0) {
-            totalEvent.updateBenefitHistory(EVENT_TITLE, calculateDiscount(order));
+            totalEvent.updateBenefitHistory(EVENT_TITLE, discountAmount);
         }
     }
 
