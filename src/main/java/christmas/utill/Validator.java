@@ -45,7 +45,7 @@ public class Validator {
 
     public static void validateAndAddToOrder(String menuName, int quantity, MenuBoard menuBoard, Order order) {
         try {
-            Menu boardMenu = menuBoard.getMenuByName(menuName);
+            Menu boardMenu = menuBoard.findMenuByName(menuName);
             order.addMenu(menuName, quantity);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(MENU_ERROR);

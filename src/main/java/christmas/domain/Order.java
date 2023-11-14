@@ -15,7 +15,7 @@ public class Order {
     }
 
     public void addMenu(String menuName, int quantity) {
-        Menu menu = menuBoard.getMenuByName(menuName);
+        Menu menu = menuBoard.findMenuByName(menuName);
         if (orderedItems.containsKey(menu)) {
             throw new IllegalArgumentException();
         }
