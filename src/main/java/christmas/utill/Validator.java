@@ -54,7 +54,7 @@ public class Validator {
 
     public static void validateOrder(Order order) {
         try {
-            order.isRightOrder();
+            order.validRightOrder();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(MENU_ERROR);
         }

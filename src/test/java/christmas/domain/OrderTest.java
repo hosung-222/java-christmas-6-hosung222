@@ -53,7 +53,7 @@ class OrderTest {
         order.addMenu("샴페인", 2);
         order.addMenu("양송이수프", 1);
 
-        assertThrows(IllegalArgumentException.class, order::isRightOrder);
+        assertThrows(IllegalArgumentException.class, order::validRightOrder);
     }
 
     @DisplayName("음료만 주문된 경우 예외 처리")
@@ -64,7 +64,7 @@ class OrderTest {
         order.addMenu("샴페인", 2);
         order.addMenu("레드와인", 2);
 
-        assertThrows(IllegalArgumentException.class, order::isRightOrder);
+        assertThrows(IllegalArgumentException.class, order::validRightOrder);
     }
 
     @DisplayName("유효한 주문에서 총 가격 계산")

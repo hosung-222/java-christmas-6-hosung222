@@ -67,7 +67,7 @@ public class Order {
         return drinkCOunt;
     }
 
-    public void isRightOrder() {
+    public void validRightOrder() {
         if (getTotalCount() > 20 || getDrinkCount() == getTotalCount()) {
             throw new IllegalArgumentException();
         }
