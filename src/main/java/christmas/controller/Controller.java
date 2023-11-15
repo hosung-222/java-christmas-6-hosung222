@@ -18,6 +18,7 @@ public class Controller {
         int date = InputHandler.receiveValidatedDate();
         Order order = InputHandler.receiveValidatedMenu();
         printOrderInfo(date, order);
+
         BillCalculator billCalculator = new BillCalculator(totalEvent, order, date);
         printTotalSaleInfo(billCalculator);
         printBadgeInfo();
